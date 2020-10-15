@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="js/scrollbar.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+
+  <title></title>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+     <div id="overlay">
+      <div class="spinner"></div>
+    </div>
+<!--
+<iframe width="960" height="315" src="https://www.google.co.in/url?sa=i&url=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2FY&psig=AOvVaw2YdpLoDcBcG2Q8kbACZh_H&ust=1602479697263000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjR7pvkq-wCFQAAAAAdAAAAABAD" frameborder="0" allowfullscreen></iframe>
+frameborder="0" allowfullscreen></iframe> -->
+    <header>
+      <div class="home">
+        <nav>
+        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/events">Events</a>
+            <a href="#">Team</a>
+            <a href="/contact">Contact</a>
+            {{#if user}}
+            <a href="/account">Profile Info</a>
+            <form action="/logout" method="post">
+          <li class="pt-2"><button type="submit">Logout</button></li>
+        </form>
+             {{else}}
+            <a href="/login">Login</a>
+            {{!-- {{#else}}
+            <a href="/login">Login</a> --}}
+            {{/if}}
+           
+        </div>
+        </nav>
+        <main>
+          <section>
+            <h3>Welcome to Culrav 2k20!</h3>
+            <h1>An extravaganza of <span class='change_content'> </span></h1>
+            <p>Tagline of Fest</p>
+            <a href="#" class="btnone">Register</a>
+            <a href="/events" class="btntwo">Events</a>
+            <p id="timer"><span></span></p>
+          </section>
+        </main>
+      </div>
+    </header>
+
+    <section>
+      <div class="part2">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </section>
+    <section>
+      <div class="part3">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      </div>
+    </section>
+  </body>
+
+  <script type="text/javascript">
+      let progress = document.getElementById('progressbar');
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+          let progressHeight = (window.pageYOffset / totalHeight) *100;
+          progress.style.height = progressHeight + "%";
+        }
+  </script>
+  <script>
+   var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();
+    var x = setInterval(function() {
+      var now = new Date().getTime();
+      var distance = countDownDate - now;
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+  </script>
+    <script type="text/javascript">
+    var overlay = document.getElementById("overlay");
+    window.addEventListener('load', function(){
+      overlay.style.display = 'none';
+    })
+  </script>
+</html>

@@ -1,0 +1,110 @@
+
+header .login{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.1)), url(../assets/loginbg.jpg);
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+nav .menu a:last-child{
+  color: #be934f;
+}
+
+.login-container{
+    width: 60vh;
+    height: 80vh;
+    top: 55%;
+    left: 50%;
+    position: absolute;
+    background: #000;
+    opacity: 0.7;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    color: #fff;
+    padding: 40px 20px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.login-container h3{
+    text-align: center;
+    font-size: 14px;
+}
+
+.login-container label{
+    display: block;
+    font-size: 11px;
+}
+
+.login-container div{
+    margin-bottom: 20px;
+}
+
+.login-container input[type="text"], input[type="password"], input[type='email']{
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ffff;
+    background: transparent;
+    color: #969696;
+    height: 40px;
+}
+
+.login-container input[type="submit"]{
+    width: 100%;
+    border: none;
+    outline: none;
+    height: 40px;
+    background-image: linear-gradient(to right,#32a84a, #3294a8);
+    color: #ffff;
+
+}
+
+.login-container button{
+  width: 100%;
+  border: none;
+  outline: none;
+  height: 40px;
+  background-image: linear-gradient(to right,#32a84a, #3294a8);
+  color: #ffff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+
+}
+
+.login-container input[type="submit"]:hover{
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #696969;
+}
+
+.login-container input[placeholder]{
+  font-size: 10px;
+}
+
+.ques{
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 10px;
+}
+
+a:hover{
+    color: #d3d3d3;
+
+}
+
+
+#loading{
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	background: #fff
+	url('C:\Users\yasha\Downloads\wix logo.PNG')
+	no-repeat center ;
+    z-index: 99999;
+}

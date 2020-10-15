@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <header>
+      <div class="login">
+      <nav>
+        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/events">Events</a>
+            <a href="team">Team</a>
+            <a href="/contact">Contact</a>
+            <a href="/signup">Signup</a>
+        </div>
+        </nav>
+      </div>
+    </header>
+    <section>
+      <div class="login-container">
+      <form action="/login" method="POST">
+          <h1>LOGIN</h1>
+          <div>
+              <label>Email ID</label>
+              <input type="email" name="email" placeholder="Enter your emailID here" value="">
+          </div>
+          <div>
+              <label>Password</label>
+              <input type="password" name="password" placeholder="Enter your password here" value="">
+          </div>
+          <input type="submit" name="login" value="LOGIN">
+         {{!-- <a class='ques' href="#">Forgot Password?</a>
+          <a class='ques' href="#">Forgot Username?</a> --}}
+          <button type="button" name="button"><a href="/signup">Create a New Account</a></button>
+          <!-- Give link to ContactUs page here! -->
+          <!-- Redirect to homepage -->
+      </form>
+  </div>
+    </section>
+  </body onload="myFunction()">
+  <script type="text/javascript">
+      let progress = document.getElementById('progressbar');
+      let totalHeight = document.body.scrollHeight - window.innerHeight;
+      window.onscroll = function(){
+        let progressHeight = (window.pageYOffset / totalHeight) *100;
+        progress.style.height = progressHeight + "%";
+      }
+  </script>
+  <script>
+
+   var preloader = document.getElementById('loading');
+   function myFunction(){
+     preloader.style.display = 'none';
+   }
+
+</script>
+</html>

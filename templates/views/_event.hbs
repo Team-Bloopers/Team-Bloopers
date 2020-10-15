@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
+    <title></title>
+  </head>
+  <body >
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <header>
+      <div class="events">
+      <nav>
+        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/events">Events</a>
+            <a href="/team">Team</a>
+            <a href="/contact">Contact</a>
+            {{#if user}}
+            <a href="/account">Profile Info</a>
+            <a href="/logout">logout</a>
+            {{#else}}
+            <a href="/login">Login</a>
+            {{/else}}
+            {{/if}}
+        </div>
+        </nav>
+        <main>
+          <section>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/partydance.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/music.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/pronite.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+          </section>
+          <section>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/partydance.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/music.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+            <div class="eventbox">
+              <div class="imgBx">
+                  <img src="assets/pronite.jpg" alt="">
+              </div>
+              <div class="content">
+                  <h2>RockShow<br><span>Euophira</span></h2>
+              </div>
+            </div>
+          </section>
+        </main>
+      </div>
+    </header>
+  </body>
+  <script type="text/javascript">
+     let progress = document.getElementById('progressbar');
+        let totalHeight = document.body.scrollHeight - window.innerHeight;
+        window.onscroll = function(){
+          let progressHeight = (window.pageYOffset / totalHeight) *100;
+          progress.style.height = progressHeight + "%";
+        }
+  </script>
+  
+</html>

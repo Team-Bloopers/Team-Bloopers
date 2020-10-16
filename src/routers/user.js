@@ -134,26 +134,43 @@ router.patch('users/me',auth,async(req,res)=>{
         res.status(404).send()
     }
 })
-
-router.get('/admin',auth,async(req,res)=>{
-    try{
-        if(req.user.Admin)
-        {
-            await User.find({CollegeName: req.user.CollegeName}, (error,docs)=>{
-                if(error)
-                {   console.log(error)
-                    res.status(404).send()
-                }
-                else{
-                    console.log(docs)
-                    res.status(201).send(docs)
-                }
-            })
-        }
-    }catch(e){
-        res.status(404).send(e)
-        }
+router.get('/admin',auth,(req,res)=>{
+    res.render('admin',{
+        user : req.user
+    })
 })
+
+router.get('/admin',auth,(req,res)=>{
+    res.render('admin',{
+        user : req.user
+    })
+})
+
+router.get('/campus',auth,(req,res)=>{
+    res.render('campus',{
+        user : req.user
+    })
+})
+
+// router.get('/admin',auth,async(req,res)=>{
+//     try{
+//         if(req.user.Admin)
+//         {
+//             await User.find({CollegeName: req.user.CollegeName}, (error,docs)=>{
+//                 if(error)
+//                 {   console.log(error)
+//                     res.status(404).send()
+//                 }
+//                 else{
+//                     console.log(docs)
+//                     res.status(201).send(docs)
+//                 }
+//             })
+//         }
+//     }catch(e){
+//         res.status(404).send(e)
+//         }
+// })
 
 
 

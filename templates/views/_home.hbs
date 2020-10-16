@@ -27,6 +27,9 @@ frameborder="0" allowfullscreen></iframe> -->
       <div class="home">
         <nav>
         <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
+        {{#if user}}
+        <div class="logo"><h2 class='animate__animated animate__heartBeat'>Hey {{user.name}}!</h2></div>
+        {{/if}}
         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
@@ -50,7 +53,9 @@ frameborder="0" allowfullscreen></iframe> -->
             <h3>Welcome to Culrav 2k20!</h3>
             <h1>An extravaganza of <span class='change_content'> </span></h1>
             <p>Tagline of Fest</p>
+            {{#if user}}
             <a href="#" class="btnone">Register</a>
+            {{/if}}
             <a href="/events" class="btntwo">Events</a>
             <p id="timer"><span></span></p>
           </section>

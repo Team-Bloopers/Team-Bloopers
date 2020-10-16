@@ -24,10 +24,13 @@
             <a href="/contact">Contact</a>
             {{#if user}}
             <a href="/account">Profile Info</a>
-            <a href="/logout">logout</a>
-            {{#else}}
+            <form action="/logout" method="post">
+          <li class="pt-2"><button type="submit">Logout</button></li>
+        </form>
+             {{else}}
             <a href="/login">Login</a>
-            {{/else}}
+            {{!-- {{#else}}
+            <a href="/login">Login</a> --}}
             {{/if}}
         </div>
         </nav>

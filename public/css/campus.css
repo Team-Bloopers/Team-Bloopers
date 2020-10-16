@@ -9,8 +9,16 @@ header h2{
   margin-left: auto;
   margin-right: auto;
   width: 90%;
-  padding-bottom: 5vh;
+  padding-bottom: 3vh;
   padding-top: 5vh;
+}
+
+header h4{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding-bottom: 1vh;
+
 }
 
 table{
@@ -18,6 +26,8 @@ table{
   margin-right: auto;
   font-size: 2vw;
   width: 90%;
+  transition: all 0.5s ease;
+
 }
 
 th{
@@ -29,12 +39,24 @@ th{
 }
 
 td{
-  border: 2.5px solid #737373;
+  border: 2.5px solid #6e6e6e;
   padding: 0.5rem;
   color: white;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
+
+td:hover{
+  background: #00b894;
+  color:white;
+  border: 2.5px solid black;
+}
+
+th:hover{
+  background: #cc80ff;
+}
+
 
 body{
     background: linear-gradient(198deg, #00aa7f, #c134e7);

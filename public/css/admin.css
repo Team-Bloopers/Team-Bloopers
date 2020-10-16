@@ -1,0 +1,76 @@
+header .campus{
+  height: 100vh;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+header h2{
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+  padding-bottom: 3vh;
+  padding-top: 5vh;
+}
+
+table{
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 2vw;
+  width: 90%;
+  transition: all 0.5s ease;
+}
+
+th{
+  border: 2.5px solid black;
+  padding: 0.5rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+td{
+  border: 2.5px solid #6e6e6e;
+  padding: 0.5rem;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+td:hover{
+  background: #ebb010;
+  color:white;
+  border: 2.5px solid black;
+}
+
+th:hover{
+  background: #14c1c4;
+}
+
+
+body{
+  background: linear-gradient(211deg, #df4848, #ff00ad, #be00ff);
+  background-size: 600% 600%;
+  -webkit-animation: adminanimation 30s ease infinite;
+  -moz-animation: adminanimation 30s ease infinite;
+  animation: adminanimation 30s ease infinite;
+}
+
+@-webkit-keyframes adminanimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@-moz-keyframes adminanimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+@keyframes adminanimation {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}

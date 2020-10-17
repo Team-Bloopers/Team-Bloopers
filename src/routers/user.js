@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 var session = require('express-session')
 const cookie = require('cookie')
 const auth = require('../middlewares/auth')
-
+const auth2 = require('../middlewares/auth2')
 //const sessionChecker = require('../middlewares/sessionChecker')
 const router = new express.Router()
 
@@ -134,22 +134,51 @@ router.patch('users/me',auth,async(req,res)=>{
         res.status(404).send()
     }
 })
-router.get('/admin',auth,(req,res)=>{
-    res.render('admin',{
-        user : req.user
-    })
+router.get('/admin',auth2,async(req,res)=>{
+    try{
+        if(req.user.Admin)
+        {
+            await User.find({}, (error,users)=>{
+                if(error)
+                throw new Error
+
+                else{
+                     console.log('^*^*USERS*^*^',users)
+                    res.render('admin',{
+                        user : req.user,
+                        users : users
+                    })
+                }
+            })
+        }
+    }catch(e){
+        console.log(e)
+        res.redirect('/')
+    }
 })
 
-router.get('/admin',auth,(req,res)=>{
-    res.render('admin',{
-        user : req.user
-    })
-})
 
-router.get('/campus',auth,(req,res)=>{
-    res.render('campus',{
-        user : req.user
-    })
+router.get('/campus',auth2,async(req,res)=>{
+    try{
+        if(req.user.abassador)
+        {
+            await User.find({CollegeName: req.user.CollegeName}, (error,users)=>{
+                if(error)
+                throw new Error
+
+                else{
+                    // console.log('^*^*USERS*^*^',users[1])
+                    res.render('campus',{
+                        user : req.user,
+                        users : users
+                    })
+                }
+            })
+        }
+    }catch(e){
+        console.log(e)
+        res.redirect('/')
+    }
 })
 
 // router.get('/admin',auth,async(req,res)=>{
@@ -175,6 +204,7 @@ router.get('/campus',auth,(req,res)=>{
 
 
 
+
 // Delete
 
 router.delete('/users/me',auth,async(req,res)=>{
@@ -186,6 +216,50 @@ router.delete('/users/me',auth,async(req,res)=>{
         res.status(500).send()
     }
 })
+
+
+
+//INVALID REQUESTS
+
+router.get('*',(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+router.get('/home/*',(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+router.get('/events/*',(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+
+router.get('/admin/*',(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+
+router.get('/campus/*',(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+
+
+
+
+
+
+
 
 
 // Reading self data

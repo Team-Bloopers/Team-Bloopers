@@ -33,7 +33,7 @@
         </nav>
         <main>
           <section>
-            <h2>List of Campus Ambassadors</h2>
+            <h2>Hey {{user.name}}! You are an Admin</h2>
             <!-- <h4>Your Referral Code: </h4> -->
             <table>
               <thead>
@@ -41,18 +41,23 @@
                   <th>S. No</th>
                   <th>Name</th>
                   <th>College</th>
-                  <th>Referral Code</th>
-                  <th>Referrals</th>
+                  <th>Contact</th>
+                  <th>Email</th>
                 </tr>
               </thead>
               <tbody>
+                {{#each users}}
                 <tr>
+                  {{#if this.Admin}}
+                  {{else}}
                   <td>1</td>
-                  <td>Yash</td>
-                  <td>MNNIT</td>
-                  <td>4R54T69</td>
-                  <td>21</td>
+                  <td>{{this.name}}</td>
+                  <td>{{this.CollegeName}}</td>
+                  <td>{{this.ContactNumber}}</td>
+                  <td>{{this.email}}</td>
+                  {{/if}}
                 </tr>
+                {{/each}}
               </tbody>
             </table>
           </section>

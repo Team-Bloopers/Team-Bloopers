@@ -35,6 +35,10 @@ const userSchema = new mongoose.Schema({
         }
 
 },
+ContactNumber : {
+    type : Number,
+    required : true
+},
     CollegeName : {
     type : String,
     required : true,

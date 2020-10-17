@@ -32,22 +32,28 @@
         </nav>
         <main>
           <section>
-            <h2>Students Registered from your College</h2>
-            <h4>Your Referral Code: </h4>
+            <h2>Students Registered from your College "{{user.CollegeName}}"</h2>
+            <h4> </h4>
             <table>
               <thead>
                 <tr>
                   <th>S. No</th>
                   <th>Name</th>
-                  <th>College</th>
+                  <th>Contact Number</th>
                 </tr>
               </thead>
               <tbody>
+                {{#each users}}
                 <tr>
+                  {{#if this.Admin}}
+                  {{else}}{{#if this.abassador}}
+                  {{else}}
                   <td>1</td>
-                  <td>Yash</td>
-                  <td>MNNIT</td>
+                  <td>{{this.name}}</td>
+                  <td>{{this.ContactNumber}}</td>
+                  {{/if}}{{/if}}
                 </tr>
+                {{/each}}
               </tbody>
             </table>
           </section>

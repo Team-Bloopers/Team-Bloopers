@@ -36,7 +36,16 @@ frameborder="0" allowfullscreen></iframe> -->
             <a href="#">Team</a>
             <a href="/contact">Contact</a>
             {{#if user}}
-            <a href="/account">Profile Info</a>
+              {{#if user.Admin}}
+            <a href="/admin">Profile Info</a>
+            {{else}}{{#if user.abassador}}
+            <a href="/campus">Profile Info</a>
+             {{else}}
+             <a href="/user">Profile Info</a>
+            {{/if}} {{/if}}
+        {{/if}}
+            
+            {{#if user}}
             <form action="/logout" method="post">
           <li class="pt-2"><button type="submit">Logout</button></li>
         </form>
@@ -45,7 +54,6 @@ frameborder="0" allowfullscreen></iframe> -->
             {{!-- {{#else}}
             <a href="/login">Login</a> --}}
             {{/if}}
-           
         </div>
         </nav>
         <main>

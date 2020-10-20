@@ -26,19 +26,19 @@ router.get('/events',auth,(req,res)=>{
         user : req.user
     })
 })
+//contact
 router.get('/contact',auth,(req,res)=>{
     res.render('contact',{
         user : req.user
     })
 })
-
+// user
 router.get('/user',auth2,(req,res)=>{
     console.log(req.user)
     res.render('user',{
         user : req.user
     })
 })
-
 router.post('/user',auth2,async(req,res)=>{
     console.log('REQ',req.user.request);
    try{
@@ -52,7 +52,7 @@ router.post('/user',auth2,async(req,res)=>{
    }
 })
 
-
+// registration form
 router.get('/register',auth2,(req,res)=>{
     res.render('register',{
         user : req.user
@@ -100,25 +100,13 @@ router.post('/register',auth2,async(req,res)=>{
         console.log(e)
         res.redirect('/register')
     }
-    // const task = new Task({
-    //     ...req.body,
-    //     owner : req.user._id
-    // })
-    // try{
-    //     await task.save()
-    //     res.redirect('/')
-    // }catch(error){
-    //     console.log(error)
-    //     res.redirect('/register')
-    // }
 })
 
-
+// signup
 router.get('/signup',(req,res)=>{
     res.render('_signup')
 })
 
-// Signing UP
 router.post('/signup' ,async(req,res)=>{
     console.log(req.body)
     const user = new User(req.body)
@@ -138,23 +126,10 @@ router.post('/signup' ,async(req,res)=>{
     }
 })
 
-
-// for logging in
-// function checkSignIn(req, res){
-//     if(req.session.user){
-//        next();     //If session exists, proceed to page
-//     } else {
-//        var err = new Error("Not logged in!");
-//        console.log(req.session.user);
-//        next(err);  //Error, trying to access unauthorized page!
-//     }
-//  }
-
-
+// login
 router.get('/login',(req,res)=>{
     res.render('_login')
 })
-
 
 router.post('/login', async(req,res)=>{
     try{
@@ -175,8 +150,8 @@ router.post('/login', async(req,res)=>{
         res.status(400).send()
     }
 })
-// logging out
 
+// logging out
 
 router.post('/logout',auth, async (req, res) => {
     try {
@@ -194,31 +169,32 @@ router.post('/logout',auth, async (req, res) => {
         res.status(500).send()
     }
 })
-router.get('/me' ,auth, async(req,res)=>{
-    res.send(req.user)
-})
+
 //updation
 
-router.patch('users/me',auth,async(req,res)=>{
-    const updates = Object.keys(req.body)
-    const allowedUpdates = ['name','email','password','CollegeName']
-    const isValidOperation = updates.every((update)=>{
-        return allowedUpdates.includes(update)
-    })
-    if(!isValidOperation){
-        return res.status(400).send({error: 'Invalid Try again'})
-    }
-    try{
-        updates.forEach((update)=>{
-            req.user[update] = req.body[update]
-        })
-        await req.user.save()
-        res.send(req.user)
-    }catch(e){
+// router.patch('users/me',auth,async(req,res)=>{
+//     const updates = Object.keys(req.body)
+//     const allowedUpdates = ['name','email','password','CollegeName']
+//     const isValidOperation = updates.every((update)=>{
+//         return allowedUpdates.includes(update)
+//     })
+//     if(!isValidOperation){
+//         return res.status(400).send({error: 'Invalid Try again'})
+//     }
+//     try{
+//         updates.forEach((update)=>{
+//             req.user[update] = req.body[update]
+//         })
+//         await req.user.save()
+//         res.send(req.user)
+//     }catch(e){
 
-        res.status(404).send()
-    }
-})
+//         res.status(404).send()
+//     }
+// })
+
+
+// ADMIN DATA
 router.get('/admin',auth2,async(req,res)=>{
     try{
         if(req.user.Admin)
@@ -322,7 +298,7 @@ router.get('/admin',auth2,async(req,res)=>{
 })
 
 
-// Requests
+// Requests for becoming ambassador
 router.get('/requests',auth2,async(req,res)=>{
     try{
         if(req.user.Admin)
@@ -332,7 +308,7 @@ router.get('/requests',auth2,async(req,res)=>{
                 throw new Error
 
                 else{
-                     console.log('^*^*USERS*^*^',users)
+                    //  console.log('^*^*USERS*^*^',users)
                     res.render('requests',{
                         user : req.user,
                         users : users
@@ -345,7 +321,6 @@ router.get('/requests',auth2,async(req,res)=>{
         res.redirect('')
     }
 })
-
 
 router.get('/campus',auth2,async(req,res)=>{
     try{
@@ -370,28 +345,6 @@ router.get('/campus',auth2,async(req,res)=>{
     }
 })
 
-
-// router.get('/admin',auth,async(req,res)=>{
-//     try{
-//         if(req.user.Admin)
-//         {
-//             await User.find({CollegeName: req.user.CollegeName}, (error,docs)=>{
-//                 if(error)
-//                 {   console.log(error)
-//                     res.status(404).send()
-//                 }
-//                 else{
-//                     console.log(docs)
-//                     res.status(201).send(docs)
-//                 }
-//             })
-//         }
-//     }catch(e){
-//         res.status(404).send(e)
-//         }
-// })
-
-
 // Delete
 
 //INVALID REQUESTS
@@ -401,34 +354,67 @@ router.get('/campus',auth2,async(req,res)=>{
 //         errorMessage : 'Page Not Found',
 //     })
 // })
-
-router.get('/home/*',(req,res)=>{
+router.get('*',auth,(req,res)=>{
     res.render('404',{
         errorMessage : 'Page Not Found',
     })
 })
 
-router.get('/events/*',(req,res)=>{
+router.get('/admin/*',auth,(req,res)=>{
     res.render('404',{
         errorMessage : 'Page Not Found',
     })
 })
 
-
-router.get('/admin/*',(req,res)=>{
-    res.render('404',{
-        errorMessage : 'Page Not Found',
-    })
-})
-
-
-router.get('/campus/*',(req,res)=>{
+router.get('/events/*',auth,(req,res)=>{
     res.render('404',{
         errorMessage : 'Page Not Found',
     })
 })
 
 
+router.get('/home/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+
+
+router.get('/login/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/signup/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/campus/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/contact/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/register/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/requests/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
+router.get('/user/*',auth,(req,res)=>{
+    res.render('404',{
+        errorMessage : 'Page Not Found',
+    })
+})
 // Reading self data
 //router.get('/users/me',auth,async())
 

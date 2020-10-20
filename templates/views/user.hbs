@@ -4,62 +4,55 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/profile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <title></title>
+    <title></title>
   </head>
   <body>
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
     <header>
-      <div class="admin">
-        <nav>
+      <div class="profile">
+      <nav>
         <div class="logo"><h1 class='animate__animated animate__heartBeat'>MNNIT Allahabad</h1></div>
-       <div class="menu">
+        <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
             <a href="#">Team</a>
             <a href="/contact">Contact</a>
             {{#if user}}
+              {{#if user.Admin}}
+            <a href="/admin">ADMIN</a>
+            {{else}}{{#if user.abassador}}
+            <a href="/campus">Campus Amb</a>
+             {{else}}
+             <a href="/user">User</a>
+            {{/if}} {{/if}}
+        {{/if}}
+            
+            {{#if user}}
             <form action="/logout" method="post">
-          <li class="pt-2"><button type="submit">Logout</button></li>
+          <li class="pt-2"></li><button type="submit">Logout</button></li>
         </form>
+             {{else}}
+            <a href="/login">Login</a>
+            {{!-- {{#else}}
+            <a href="/login">Login</a> --}}
             {{/if}}
-           
         </div>
         </nav>
         <main>
           <section>
-            <h2>Hey {{user.name}}! You are an Admin</h2>
-            <!-- <h4>Your Referral Code: </h4> -->
-            <table>
-              <thead>
-                <tr>
-                  <th>S. No</th>
-                  <th>Name</th>
-                  <th>College</th>
-                  <th>Contact</th>
-                  <th>Email</th>
-                </tr>
-              </thead>
-              <tbody>
-                {{#each users}}
-                <tr>
-                  {{#if this.Admin}}
-                  {{else}}
-                  <td>1</td>
-                  <td>{{this.name}}</td>
-                  <td>{{this.CollegeName}}</td>
-                  <td>{{this.ContactNumber}}</td>
-                  <td>{{this.email}}</td>
-                  {{/if}}
-                </tr>
-                {{/each}}
-              </tbody>
-            </table>
+            <h1>Welcome {{user.name}}</h1>
+            <h2>Your college: {{user.CollegeName}}</h2>
+            <form action="/user" method="POST">
+            <div class="campusbutton" >
+
+                 <li class="pt-2"></li><button type="submit">Do you want to be a campus ambassador?</button></li>
+              </form>              
+            </div>
           </section>
         </main>
       </div>

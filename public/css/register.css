@@ -1,6 +1,6 @@
 
-header .login{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.1)), url(../assets/loginbg.jpg);
+header .register{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.1)), url(../assets/concert.jpg);
   height: 100vh;
   width: 100%;
   background-size: cover;
@@ -95,6 +95,11 @@ nav .menu a:nth-child(5){
 a:hover{
     color: #d3d3d3;
 
+}
+
+label{
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 

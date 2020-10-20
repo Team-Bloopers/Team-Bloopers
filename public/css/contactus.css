@@ -1,0 +1,56 @@
+header {
+
+  height: 100vh;
+  width: 100%;
+
+}
+
+nav .menu a:nth-child(4){
+  color: #6aff00;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  background: #010615;
+}
+@media(min-width: 768px){
+  section{
+
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
+}
+
+body {
+    background: linear-gradient(244deg, #ffd500, #9123e5);
+    background-size: 400% 400%;
+    -webkit-animation: contactus 30s ease infinite;
+    -moz-animation: contactus 30s ease infinite;
+    -o-animation: contactus 30s ease infinite;
+    animation: contactus 30s ease infinite;
+}
+@-webkit-keyframes contactus {
+    0%{background-position:0% 26%}
+    50%{background-position:100% 75%}
+    100%{background-position:0% 26%}
+}
+@-moz-keyframes contactus {
+    0%{background-position:0% 26%}
+    50%{background-position:100% 75%}
+    100%{background-position:0% 26%}
+}
+@-o-keyframes contactus {
+    0%{background-position:0% 26%}
+    50%{background-position:100% 75%}
+    100%{background-position:0% 26%}
+}
+@keyframes contactus {
+    0%{background-position:0% 26%}
+    50%{background-position:100% 75%}
+    100%{background-position:0% 26%}
+}

@@ -19,9 +19,27 @@
         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
-            <a href="team">Team</a>
+            <a href="#">Team</a>
             <a href="/contact">Contact</a>
-            <a href="/signup">Signup</a>
+            {{#if user}}
+              {{#if user.Admin}}
+            <a href="/admin">Profile Info</a>
+            {{else}}{{#if user.abassador}}
+            <a href="/campus">Profile Info</a>
+             {{else}}
+             <a href="/user">Profile Info</a>
+            {{/if}} {{/if}}
+        {{/if}}
+            
+            {{#if user}}
+            <form action="/logout" method="post">
+          <li class="pt-2"><button type="submit">Logout</button></li>
+        </form>
+             {{else}}
+            <a href="/login">Login</a>
+            {{!-- {{#else}}
+            <a href="/login">Login</a> --}}
+            {{/if}}
         </div>
         </nav>
         <h1>404 Page Not Found</h1>

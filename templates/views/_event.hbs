@@ -17,18 +17,19 @@
       <div class="events">
       <nav>
         <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
-        <div class="menu">
+         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
-            <a href="/team">Team</a>
+            <a href="#">Team</a>
             <a href="/contact">Contact</a>
             {{#if user}}
               {{#if user.Admin}}
-            <a href="/admin">Profile Info</a>
+            <a href="/admin">ADMIN</a>
+            <a href='/requests'>Requests</a>
             {{else}}{{#if user.abassador}}
-            <a href="/campus">Profile Info</a>
+            <a href="/campus">CAMPUS AMB</a>
              {{else}}
-             <a href="/user">Profile Info</a>
+             <a href="/user">USER</a>
             {{/if}} {{/if}}
         {{/if}}
             
@@ -41,7 +42,6 @@
             {{!-- {{#else}}
             <a href="/login">Login</a> --}}
             {{/if}}
-
         </div>
         </nav>
         <main>
@@ -52,6 +52,7 @@
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>DanceBattle<br><span>Euphoria</span></h2>
               </div>
             </div>
             <div class="eventbox">
@@ -60,6 +61,7 @@
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>Rap-It-Up<br><span>Euphoria</span></h2>
               </div>
             </div>
             <div class="eventbox">
@@ -68,6 +70,7 @@
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>Pronite<br><span>Euphoria</span></h2>
               </div>
             </div>
           </section>
@@ -75,25 +78,31 @@
             <div class="eventbox">
               <div class="imgBx">
                   <img src="assets/partydance.jpg" alt="">
+                  <img src="assets/pen.jpg" alt="">
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>Kavita aur Samvad<br><span>Euphoria</span></h2>
               </div>
             </div>
             <div class="eventbox">
               <div class="imgBx">
                   <img src="assets/music.jpg" alt="">
+                  <img src="assets/bike.jpg" alt="">
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>StuntShow<br><span>Euphoria</span></h2>
               </div>
             </div>
             <div class="eventbox">
               <div class="imgBx">
                   <img src="assets/pronite.jpg" alt="">
+                  <img src="assets/canvas.jpg" alt="">
               </div>
               <div class="content">
                   <h2>RockShow<br><span>Euophira</span></h2>
+                  <h2>Canvas<br><span>Euphoria</span></h2>
               </div>
             </div>
           </section>
@@ -101,13 +110,5 @@
       </div>
     </header>
   </body>
-  <script type="text/javascript">
-     let progress = document.getElementById('progressbar');
-        let totalHeight = document.body.scrollHeight - window.innerHeight;
-        window.onscroll = function(){
-          let progressHeight = (window.pageYOffset / totalHeight) *100;
-          progress.style.height = progressHeight + "%";
-        }
-  </script>
-  
+  <script type="text/javascript" src="js/index.js"></script>
 </html>

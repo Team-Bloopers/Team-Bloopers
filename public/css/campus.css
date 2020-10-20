@@ -5,6 +5,10 @@ header .campus{
   background-repeat: no-repeat;
 }
 
+nav .menu a:nth-child(6){
+  color: #fada0a;
+}
+
 header h2{
   margin-left: auto;
   margin-right: auto;

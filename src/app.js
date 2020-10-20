@@ -1,10 +1,14 @@
 const path = require('path')
 const express = require('express')
 const hbs = require('hbs')
-
+hbs.registerHelper("inc", function(value, options)
+{
+    return parseInt(value) + 1;
+});
 const bodyParser = require('body-parser')
 const mongoose = require('./db/mongoose')
 const User = require('./models/user')
+
 var cookieSession = require('cookie-session')
 var cookieParser = require('cookie-parser');
 var expressValidator = require('express-validator')
@@ -14,6 +18,7 @@ const cookie = require('cookie')
 const app = express()
 const port = process.env.PORT || 3000
 const userRouter = require('./routers/user')
+
 //const taskRouter = require('./routers/task')
 //const multer = require('multer')
 const publicDirectory = path.join(__dirname, '../public')
@@ -29,6 +34,7 @@ app.use(express.json({extended: false}))
 
 app.use(express.static(publicDirectory))
 app.use('/',userRouter)
+
 
 
 // sesssions

@@ -9,24 +9,26 @@
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="js/scrollbar.js"></script>
-    <script type="text/javascript" src="js/timer.js"></script>
-
+  
   <title></title>
   </head>
   <body>
+    <!-- <div id="overlay">
+      <div class="spinner">
+        <img src="assets/mainlogo.png" alt="Loading..." />
+      </div>
+    </div>
+    <iframe width="960" height="315" src="assets/mainlogo.png" frameborder="0" allowfullscreen></iframe>
+frameborder="0" allowfullscreen></iframe> -->
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
-     <div id="overlay">
-      <div class="spinner"></div>
-    </div>
 <!--
 <iframe width="960" height="315" src="https://www.google.co.in/url?sa=i&url=https%3A%2F%2Fen.wiktionary.org%2Fwiki%2FY&psig=AOvVaw2YdpLoDcBcG2Q8kbACZh_H&ust=1602479697263000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCIjR7pvkq-wCFQAAAAAdAAAAABAD" frameborder="0" allowfullscreen></iframe>
 frameborder="0" allowfullscreen></iframe> -->
     <header>
       <div class="home">
         <nav>
-        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
+        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a href='http://www.mnnit.ac.in/'>MNNIT Allahabad</a></h1></div>
         {{#if user}}
         <div class="logo"><h2 class='animate__animated animate__heartBeat'>Hey {{user.name}}!</h2></div>
         {{/if}}
@@ -34,14 +36,17 @@ frameborder="0" allowfullscreen></iframe> -->
             <a href="/">Home</a>
             <a href="/events">Events</a>
             <a href="#">Team</a>
-            <a href="/contact">Contact</a>
+            <a href="/contact">Contact Us</a>
             {{#if user}}
               {{#if user.Admin}}
-            <a href="/admin">Profile Info</a>
+            <a href="/admin">ADMIN</a>
+            <a href='/requests'>Requests</a>
             {{else}}{{#if user.abassador}}
-            <a href="/campus">Profile Info</a>
+            <a href="/campus">CAMPUS AMB</a>
+            
              {{else}}
-             <a href="/user">Profile Info</a>
+             <a href="/user">USER</a>
+             
             {{/if}} {{/if}}
         {{/if}}
             
@@ -58,29 +63,34 @@ frameborder="0" allowfullscreen></iframe> -->
         </nav>
         <main>
           <section>
-            <h3>Welcome to Culrav 2k20!</h3>
+            <h3>Welcome to Euphoria 2k20!</h3>
             <h1>An extravaganza of <span class='change_content'> </span></h1>
             <p>Tagline of Fest</p>
             {{#if user}}
-            <a href="#" class="btnone">Register</a>
+            <a href="/register" class="btnone">Register</a>
             {{/if}}
             <a href="/events" class="btntwo">Events</a>
             <p id="timer"><span></span></p>
           </section>
         </main>
       </div>
-    </header>
+    
 
     <section>
       <div class="part2">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+       <p class='text'>Mood Indigo, Asia's largest college cultural festival, has developed over the years into so much more: a melting pot of Indian and global culture, a launchpad for upcoming artists, a spectacular showcase of talent, an epitome of incredible human experience: where you can never see it all, but what you do see lasts a lifetime, where friendships are born and memories are made amidst the gleam of several bonfires as the nights intensify.</p>
+       </div>
     </section>
     <section>
       <div class="part3">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      </div>
+       <p class='text'>“Music is what feelings sound like.”
+          In a world full of chaos, Euphoria 2020 strives to bring along all of you and invigorate you with extreme amounts of pure happiness and ecstacy, and also serve as an escape from all the bitterness that life hands down to all of us. We promise you an incredible experience filled with love, happiness and thrill while you live the best 4 days of your lives!
+          And nothing's better than a ballad: a sentimental song with a story to tell, to describe the incredible human experience that Euphoria 2020 promises to provide.
+          Presenting, Euphoria 2020: A Ballad of Ecstacy.
+        </p>
+        </div>
     </section>
+    </header>
   </body>
 
   <script type="text/javascript">

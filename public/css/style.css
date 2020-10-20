@@ -17,17 +17,23 @@ nav{
 }
 
 nav .logo{
-  width: 25%;
+  width: 25vw;
   text-align: center;
 }
 
+nav .logo a{
+  text-decoration: none;
+  color: white;
+}
+
 nav .menu{
-  width: 40%;
+  width: 50%;
   display: flex;
   justify-content: space-around;
 }
 
-nav .menu a{1  width: 25%;
+nav .menu a{
+  width: 25%;
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -147,8 +153,43 @@ nav .menu a{1  width: 25%;
   }
 }
 
-@media screen and (min-width: 756px) {
-  .phone{
-    visibility: hidden;
+@media screen and (max-width: 600px) {
+  .text{
+    font-size: 5vw;
   }
 }
+
+.spinner{
+    width: 80px;
+    height: 80px;
+
+    border: 2px solid #f3f3f3;
+    border-top:3px solid #f25a41;
+    border-radius: 100%;
+
+    position: absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right: 0;
+    margin: auto;
+
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }to{
+        transform: rotate(360deg);
+    }
+}
+
+#overlay{
+  height:100%;
+  width:100%;
+  background:rgba(0, 0, 0, 1);
+  position:fixed;
+  left:0;
+  top:0;
+ }

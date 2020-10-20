@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/index.js"></script>
+    <title></title>
+  </head>
+  <body>
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <header>
+      <div class="register">
+      <nav>
+       <div class="logo"><h1 class='animate__animated animate__heartBeat'><a href='http://www.mnnit.ac.in/'>MNNIT Allahabad</a></h1></div>
+        {{#if user}}
+        <div class="logo"><h2 class='animate__animated animate__heartBeat'>Hey {{user.name}}!</h2></div>
+        {{/if}}
+        
+        
+        <div class="menu">
+            <a href="/">Home</a>
+            <a href="/events">Events</a>
+            <a href="#">Team</a>
+            <a href="/contact">Contact Us</a>
+            {{#if user}}
+              {{#if user.Admin}}
+            <a href="/admin">ADMIN</a>
+            <a href='/requests'>Requests</a>
+            {{else}}{{#if user.abassador}}
+            <a href="/campus">CAMPUS AMB</a>
+            
+             {{else}}
+             <a href="/user">USER</a>
+             
+            {{/if}} {{/if}}
+        {{/if}}
+            
+            {{#if user}}
+            <form action="/logout" method="post">
+          <li class="pt-2"><button type="submit">Logout</button></li>
+        </form>
+             {{else}}
+            <a href="/login">Login</a>
+            {{!-- {{#else}}
+            <a href="/login">Login</a> --}}
+            {{/if}}
+        </div>
+         {{#if user.registered}}
+        {{!-- {{#if this.registered}} --}}
+        <div class="logo"><h2 class='animate__animated animate__heartBeat'>Hey You have already registered for the event! For any Changes Contact ADMIN</h2></div>
+        {{!-- {{/if}} --}}
+        {{else}}
+        <div class="logo"><h2 class='animate__animated animate__heartBeat'>You can only fill this form once. Be Careful!</h2></div>
+        {{/if}}
+         </nav>
+        
+      </div>
+      
+    </header>
+    <section>
+      <div class="login-container">
+        <form action="/register" method="POST">
+            <h1>Select the events that you want to participate in!</h1>
+            <label for=""><h2>DanceBattle <input type="checkbox" name="DanceBattle" placeholder="DanceBattle" value="true"></h2></label>
+            <label for=""><h2>Rap-It-Up <input type="checkbox" name="RapItUp" placeholder="RapItUp" value="true"></h2></label>
+            <label for=""><h2>Pronite <input type="checkbox" name="Pronite" placeholder="Pronite" value="true"></h2></label>
+            <label for=""><h2>Kavita aur Samvad <input type="checkbox" name="KavitaAurSamvad" placeholder="KavitaAurSamvad" value="true"></h2></label>
+            <label for=""><h2>StuntShow <input type="checkbox" name="StuntShow" placeholder="StuntShow" value="true"></h2></label>
+            <label for=""><h2>Canvas <input type="checkbox" name="Canvas" placeholder="Canvas" value="true"></h2></label>
+            <input type="submit" name="Register" value="Register">
+
+        </form>
+      </div>
+    </section>
+  </body>
+  <script type="text/javascript" src="js/index.js"></script>
+</html>

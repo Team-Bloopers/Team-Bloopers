@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="js/index.js"></script>
     <title></title>
   </head>
   <body>
@@ -39,29 +40,12 @@
               <input type="password" name="password" placeholder="Enter your password here" value="">
           </div>
           <input type="submit" name="login" value="LOGIN">
-         {{!-- <a class='ques' href="#">Forgot Password?</a>
-          <a class='ques' href="#">Forgot Username?</a> --}}
-          <button type="button" name="button"><a href="/signup">Create a New Account</a></button>
-          <!-- Give link to ContactUs page here! -->
-          <!-- Redirect to homepage -->
+            {{!-- <a class='ques' href="#">Forgot Password?</a>
+            <a class='ques' href="#">Forgot Username?</a> --}}
+            <a href="/signup" id='signup'>Create a New Account?</a>
       </form>
   </div>
     </section>
-  </body onload="myFunction()">
-  <script type="text/javascript">
-      let progress = document.getElementById('progressbar');
-      let totalHeight = document.body.scrollHeight - window.innerHeight;
-      window.onscroll = function(){
-        let progressHeight = (window.pageYOffset / totalHeight) *100;
-        progress.style.height = progressHeight + "%";
-      }
-  </script>
-  <script>
-
-   var preloader = document.getElementById('loading');
-   function myFunction(){
-     preloader.style.display = 'none';
-   }
-
-</script>
+  </body>
+  <script type="text/javascript" src="js/index.js"></script>
 </html>

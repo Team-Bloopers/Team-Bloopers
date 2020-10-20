@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
-
 const userSchema = new mongoose.Schema({
     name : {
         type : String,
@@ -56,8 +55,37 @@ abassador : {
     type : Boolean,
     default : false
 },
-referral:{
-    type: Number
+request:{
+    type : Boolean,
+    default : false
+},
+DanceBattle : {
+    type : Boolean,
+    default : false
+},
+RapItUp : {
+    type : Boolean,
+    default : false
+},
+Pronite : {
+    type : Boolean,
+    default : false
+},
+KavitaAurSamvad : {
+    type : Boolean,
+    default : false
+},
+StuntShow : {
+    type : Boolean,
+    default : false
+},
+Canvas : {
+    type : Boolean,
+    default : false
+},
+registered : {
+    type : Boolean,
+    default : false
 },
 tokens: [{
     token: {
@@ -79,6 +107,9 @@ userSchema.methods.toJSON = function () {
 
     return userObject
 }
+
+
+
 
 userSchema.methods.generateAuthToken = async function () {
     const user = this
@@ -124,5 +155,7 @@ userSchema.pre('save',async function (next){
     console.log('Just before saving')
     next()
 })
+
+
 const User = mongoose.model('User',userSchema)
 module.exports = User

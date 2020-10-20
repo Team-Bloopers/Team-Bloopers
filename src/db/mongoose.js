@@ -28,3 +28,22 @@ mongoose.connect(connectionURL,{
 // }).catch((error)=>{
 //     console.log(error)
 // })
+// const tasks = mongoose.model('tasks',{
+//     description :{
+//         type : String
+//     },
+//     completed : {
+//         type : Boolean
+//     }
+// })
+ 
+// const work = new tasks({
+//     description : "Website",
+//     completed : false
+// })
+
+// work.save().then(()=>{
+//     console.log(work)
+// }).catch((error)=>{
+//     console.log(error)
+// })

@@ -35,7 +35,7 @@ frameborder="0" allowfullscreen></iframe> -->
         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
-            <a href="#">Team</a>
+            <a href="/team">Team</a>
             <a href="/contact">Contact Us</a>
             {{#if user}}
               {{#if user.Admin}}
@@ -71,6 +71,12 @@ frameborder="0" allowfullscreen></iframe> -->
             {{/if}}
             <a href="/events" class="btntwo">Events</a>
             <p id="timer"><span></span></p>
+
+            {{!-- Animations  --}}
+            <div id= "particles-js"></div>
+            <script src="js/particles.js"></script>
+            <script src="js/app.js"></script>
+    
           </section>
         </main>
       </div>
@@ -91,6 +97,10 @@ frameborder="0" allowfullscreen></iframe> -->
         </div>
     </section>
     </header>
+    <div id= "particles-js"></div>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    
   </body>
 
   <script type="text/javascript">

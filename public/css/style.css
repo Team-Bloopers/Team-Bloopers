@@ -145,13 +145,23 @@ nav .menu a{
   .menu{
     visibility: hidden;
   }
-  #scrollbar{
+  /* #scrollbar{
     visibility: hidden;
   }
   #progressbar{
     visibility: hidden;
+  } */
+  .logo{
+    visibility: hidden;
+  }
+  body{
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
   }
 }
+
 
 @media screen and (max-width: 600px) {
   .text{
@@ -193,3 +203,4 @@ nav .menu a{
   left:0;
   top:0;
  }
+ 

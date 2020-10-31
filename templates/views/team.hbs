@@ -4,32 +4,37 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/events.css">
+    <link rel="stylesheet" href="css/team.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@600&display=swap" rel="stylesheet">
     <title></title>
   </head>
-  <body >
+  <body>
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
     <header>
       <div class="events">
-      <nav>
-        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a class = "x" href="http://mnnit.ac.in">MNNIT Allahabad</a></h1></div>
-         <div class="menu">
+       <nav>
+        <div class="logo"><h1 class='animate__animated animate__heartBeat'><a href='http://www.mnnit.ac.in/'>MNNIT Allahabad</a></h1></div>
+        {{#if user}}
+        <div class="logo"><h2 class='animate__animated animate__heartBeat'>Hey {{user.name}}!</h2></div>
+        {{/if}}
+        <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
             <a href="/team">Team</a>
-            <a href="/contact">Contact</a>
+            <a href="/contact">Contact Us</a>
             {{#if user}}
               {{#if user.Admin}}
             <a href="/admin">ADMIN</a>
             <a href='/requests'>Requests</a>
             {{else}}{{#if user.abassador}}
             <a href="/campus">CAMPUS AMB</a>
+            
              {{else}}
              <a href="/user">USER</a>
+             
             {{/if}} {{/if}}
         {{/if}}
             
@@ -44,6 +49,7 @@
             {{/if}}
         </div>
         </nav>
+       
         <main>
           <section>
             <div class="eventbox">
@@ -51,8 +57,7 @@
                   <img src="assets/partydance.jpg" alt="">
               </div>
               <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>DanceBattle<br><span>Euphoria</span></h2>
+                  <h2>Vansh Ambashta<br><span>Operations Head</span></h2>
               </div>
             </div>
             <div class="eventbox">
@@ -60,8 +65,7 @@
                   <img src="assets/music.jpg" alt="">
               </div>
               <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>Rap-It-Up<br><span>Euphoria</span></h2>
+                  <h2>Yash Gautam<br><span>Technical Head</span></h2>
               </div>
             </div>
             <div class="eventbox">
@@ -69,40 +73,7 @@
                   <img src="assets/pronite.jpg" alt="">
               </div>
               <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>Pronite<br><span>Euphoria</span></h2>
-              </div>
-            </div>
-          </section>
-          <section>
-            <div class="eventbox">
-              <div class="imgBx">
-                  <img src="assets/partydance.jpg" alt="">
-                  <img src="assets/pen.jpg" alt="">
-              </div>
-              <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>Kavita aur Samvad<br><span>Euphoria</span></h2>
-              </div>
-            </div>
-            <div class="eventbox">
-              <div class="imgBx">
-                  <img src="assets/music.jpg" alt="">
-                  <img src="assets/bike.jpg" alt="">
-              </div>
-              <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>StuntShow<br><span>Euphoria</span></h2>
-              </div>
-            </div>
-            <div class="eventbox">
-              <div class="imgBx">
-                  <img src="assets/pronite.jpg" alt="">
-                  <img src="assets/canvas.jpg" alt="">
-              </div>
-              <div class="content">
-                  <h2>RockShow<br><span>Euophira</span></h2>
-                  <h2>Canvas<br><span>Euphoria</span></h2>
+                  <h2>Yash Agarwal<br><span>Feeling Good Head</span></h2>
               </div>
             </div>
           </section>

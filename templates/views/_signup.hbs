@@ -7,6 +7,15 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap" rel="stylesheet">
+    
+    {{!-- <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> --}}
     <title></title>
   </head>
   <body>
@@ -28,32 +37,37 @@
     </header>
     <section>
       <div class="login-container">
+        {{#if success}}
+        <div class="alert alert-success">
+           {{success}}
+        </div>
+        {{/if}}
       <form action="/signup" method="POST">
         <h3>SIGN UP</h3>
         <div>
             <label>Full Name</label>
-            <input type="text" name="name" placeholder="Enter your full name here" value="">
+            <input type="text" name="name" placeholder="Enter your full name here" value="" required>
         </div>
         <div>
             <label>Email ID</label>
-            <input type="email" name="email" placeholder="Enter your email ID here" value="">
+            <input type="email" name="email" placeholder="Enter your email ID here" value="" required>
         </div>
         <div>
             <label>Password</label>
-            <input type="password" name="password" placeholder="Enter your password here" value="">
+            <input type="password" name="password" placeholder="Enter your password here" value="" required>
         </div>
         <div>
             <label>Contact Number</label>
-            <input type="text" name="ContactNumber" placeholder="Contact Number" value="">
+            <input type="text" name="ContactNumber" placeholder="Contact Number" value="" required>
         </div>
         <div>
             <label>College Name</label>
-            <input type="text" name="CollegeName" placeholder="Enter your college name here" value="">
+            <input type="text" name="CollegeName" placeholder="Enter your college name here" value="" required>
         </div>
-        <div>
+        {{!-- <div>
               <label>Refferal Code</label>
-              <input type="text" name="referral" placeholder="Enter your campus ambassador's refferal code here." value="">
-          </div>
+              <input type="text" name="referral" placeholder="Enter your campus ambassador's refferal code here." value="" required>
+          </div> --}}
         
         <input type="submit" name="signup" value="Sign Up">
       </form>

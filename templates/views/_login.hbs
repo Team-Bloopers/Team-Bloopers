@@ -20,7 +20,7 @@
         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
-            <a href="team">Team</a>
+            <a href="/team">Team</a>
             <a href="/contact">Contact</a>
             <a href="/signup">Signup</a>
         </div>
@@ -29,6 +29,11 @@
     </header>
     <section>
       <div class="login-container">
+          {{#if success}}
+        <div class="alert alert-success">
+           {{success}}
+        </div>
+        {{/if}}
       <form action="/login" method="POST">
           <h1>LOGIN</h1>
           <div>
@@ -37,7 +42,8 @@
           </div>
           <div>
               <label>Password</label>
-              <input type="password" name="password" placeholder="Enter your password here" value="">
+              <input type="password" name="password"  placeholder="Enter your password here" value="" id="password">
+             
           </div>
           <input type="submit" name="login" value="LOGIN">
             {{!-- <a class='ques' href="#">Forgot Password?</a>
@@ -45,7 +51,12 @@
             <a href="/signup" id='signup'>Create a New Account?</a>
       </form>
   </div>
+    
     </section>
+    <div id= "particles-js"></div>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+    
   </body>
   <script type="text/javascript" src="js/index.js"></script>
 </html>

@@ -6,10 +6,15 @@ var session = require('express-session')
 const cookie = require('cookie')
 const auth = require('../middlewares/auth')
 const auth2 = require('../middlewares/auth2')
+// import swal from 'sweetalert';
+// const popup = require('popups')
+// import swal from 'sweetalert'
+// const swal =  require("swal")
 //const sessionChecker = require('../middlewares/sessionChecker')
 const router = new express.Router()
 
 const {sendWelcomeEmail , delemail} = require('../emails/account')
+const { default: swal } = require('sweetalert')
 
 
 // Home
@@ -51,7 +56,12 @@ router.post('/user',auth2,async(req,res)=>{
        res.redirect('/user')
    }
 })
-
+// team page
+router.get('/team',auth,(req,res)=>{
+    res.render('team',{
+        user : req.user
+    })
+})
 // registration form
 router.get('/register',auth2,(req,res)=>{
     res.render('register',{
@@ -95,13 +105,12 @@ router.post('/register',auth2,async(req,res)=>{
             // USER.DanceBattle = true
         // }
         await USER.save()
-        res.redirect('/register')
+        res.render('register',{user , success : "Successfully Registered!!!"})
     }catch(e){
         console.log(e)
         res.redirect('/register')
     }
 })
-
 // signup
 router.get('/signup',(req,res)=>{
     res.render('_signup')
@@ -112,16 +121,21 @@ router.post('/signup' ,async(req,res)=>{
     const user = new User(req.body)
     try{
         await user.save()
-        sendWelcomeEmail(user.email,user.name,user.CollegeName)
+        // console.log('NEEDED',req.protocol)
+        sendWelcomeEmail(user.email)
+       
         const token = await user.generateAuthToken()
+//    const link = '\nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n'
         
-       res.redirect('/')
+        console.log("email sent")
+        res.render('_signup',{ success : 'SignUP Successful!'})
+    //    res.redirect('/login')
      //  res.status(201).send({user,token})
        
     }catch(e){
         console.log(e)
-        
-        res.redirect("/signup")
+        res.render('_signup',{ success : 'Please try signing Up again!!'})
+        // res.redirect("/signup")
         res.status(400).send(e)
     }
 })
@@ -134,6 +148,8 @@ router.get('/login',(req,res)=>{
 router.post('/login', async(req,res)=>{
     try{
         const user = await User.findByCredentials(req.body.email,req.body.password)
+        if(user){
+            // if(isVerified){
         const token = await user.generateAuthToken()
         // console.log('HELLO' , token)
          res.cookie('Token',token, {maxAge: 5000000})
@@ -142,12 +158,15 @@ router.post('/login', async(req,res)=>{
        
        // req.session.user = user
 
+            // res.redirect('/')
+        
             res.redirect('/')
-        
-        
         res.send({user,token})
+            // }
+        }
+        
     }catch(e){
-        res.status(400).send()
+        res.render('_login',{success : "Incorrect Email or Password! \n Try Again!"})
     }
 })
 

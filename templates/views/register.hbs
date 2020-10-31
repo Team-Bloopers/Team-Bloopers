@@ -25,7 +25,7 @@
         <div class="menu">
             <a href="/">Home</a>
             <a href="/events">Events</a>
-            <a href="#">Team</a>
+            <a href="/team">Team</a>
             <a href="/contact">Contact Us</a>
             {{#if user}}
               {{#if user.Admin}}
@@ -63,7 +63,16 @@
       
     </header>
     <section>
+      {{#if user}}
+        {{#if this.registered}}
+        <h1> You have already registerd contact admin for any help!!</h1>
+        {{else}}
       <div class="login-container">
+         {{#if success}}
+        <div class="alert alert-success">
+           {{success}}
+        </div>
+        {{/if}}
         <form action="/register" method="POST">
             <h1>Select the events that you want to participate in!</h1>
             <label for=""><h2>DanceBattle <input type="checkbox" name="DanceBattle" placeholder="DanceBattle" value="true"></h2></label>
@@ -76,6 +85,9 @@
 
         </form>
       </div>
+      {{!-- {{/else}} --}}
+      {{/if}}
+      {{/if}}
     </section>
   </body>
   <script type="text/javascript" src="js/index.js"></script>

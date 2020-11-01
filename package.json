@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/app.js"
+    "dev": "env-cmd -f ./config/dev.env nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
@@ -17,7 +17,6 @@
     "cookie": "^0.4.1",
     "cookie-parser": "^1.4.5",
     "cookie-session": "^1.4.0",
-    "env-cmd": "^10.1.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "express-validator": "^6.6.1",
@@ -30,5 +29,8 @@
     "postman-request": "^2.88.1-postman.26",
     "sweetalert": "^2.1.2",
     "validator": "^13.1.17"
+  },
+  "devDependencies": {
+    "env-cmd": "^10.1.0"
   }
 }

@@ -16,7 +16,7 @@ var session = require('express-session')
 const cookie = require('cookie')
 //const task = require('./models/task')
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT 
 const userRouter = require('./routers/user')
 
 //const taskRouter = require('./routers/task')

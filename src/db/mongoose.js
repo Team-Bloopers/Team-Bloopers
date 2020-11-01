@@ -1,7 +1,7 @@
 const validator = require('validator')
 const mongoose = require('mongoose')
 
-const connectionURL = 'mongodb://127.0.0.1:27017/Avishkar' // SPecifying table
+const connectionURL = process.env.MONGODB_URL // SPecifying table
 mongoose.connect(connectionURL,{
     useNewUrlParser: true,
      useCreateIndex: true,

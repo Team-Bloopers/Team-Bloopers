@@ -203,4 +203,14 @@ nav .menu a{
   left:0;
   top:0;
  }
- 
+ nav button{
+  background:none;
+  cursor:pointer;
+  padding-right: 50px;
+  border:0;
+  color:white;
+  width: 25%;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}

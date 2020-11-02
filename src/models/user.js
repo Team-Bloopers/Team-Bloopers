@@ -91,6 +91,18 @@ registered : {
     type : Boolean,
     default : false
 },
+campus_referral : {
+    type : String,
+    default : "NULL"
+},
+referral : {
+    type : String,
+    default : "x"
+},
+count : {
+    type : Number,
+    default : 0
+},
 tokens: [{
     token: {
         type : String,

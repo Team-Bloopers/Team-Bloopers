@@ -6,6 +6,7 @@ var session = require('express-session')
 const cookie = require('cookie')
 const auth = require('../middlewares/auth')
 const auth2 = require('../middlewares/auth2')
+const referralCodeGenerator = require('referral-code-generator')
 // import swal from 'sweetalert';
 // const popup = require('popups')
 // import swal from 'sweetalert'
@@ -118,12 +119,25 @@ router.get('/signup',(req,res)=>{
 
 router.post('/signup' ,async(req,res)=>{
     console.log(req.body)
+    // console.log("QQQQQQQQQ",req.body.referral)
     const user = new User(req.body)
     try{
         await user.save()
-        // console.log('NEEDED',req.protocol)
+        const USER = null
         sendWelcomeEmail(user.email)
-       
+        if(req.body.referral !== "x"){
+            await User.find({campus_referral : req.body.referral}, async(error,user)=>{
+                if(error)
+                throw new Error
+                else{
+                    // console.log("WWWWWWWWWWWWWW",users.count)
+                    console.log("QWQWQWQWQ",user[0].count)
+                    user[0].count+=1;
+                    user[0].save()
+                }
+                 
+            })
+        }
         const token = await user.generateAuthToken()
 //    const link = '\nhttp:\/\/' + req.headers.host + '\/confirmation\/' + token.token + '.\n'
         
@@ -327,7 +341,16 @@ router.get('/requests',auth2,async(req,res)=>{
                 throw new Error
 
                 else{
+                   
+                    // users.forEach(this.campus_referral = referralCodeGenerator.alpha('lowercase', 6))
+                    // users.save()
                     //  console.log('^*^*USERS*^*^',users)
+                    for(let index = 0;index<users.length; index+=1){
+                        users[index].campus_referral = referralCodeGenerator.alpha('lowercase', 6)
+                        // console.log(users[index])
+                        users[index].save()
+                    }
+                    // await users.save()
                     res.render('requests',{
                         user : req.user,
                         users : users
